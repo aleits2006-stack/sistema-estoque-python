@@ -1,35 +1,68 @@
+```python
+# Sistema de Estoque
+# Projeto desenvolvido para estudo de Python
 
-Comprometa e7b5359
-aleits2006-stack
-aleits2006-stack
-autoria
-há 2 minutos
+produtos = []
 
-Verificado
-Crie o arquivo main.py
-principal
-1 pai
-ed51251
-comprometer-se
-e7b5359
-1 arquivo alterado
 
-+ 1
-Linhas alteradas: 1 adição e 0 exclusões
-Árvore de arquivos
-Filtrar arquivos…
-main.py
-Pesquisar dentro do código
- 
-‎main.py‎
-+ 1
-Linhas alteradas: 1 adição e 0 exclusões
-Número da linha do arquivo original	Número da linha diferente	Mudança de linha diferencial
-@@ -0,0 +1 @@
-0 comentários de commit
-Comentários
-0
- ( 0 )
+def cadastrar_produto():
+    print("\n=== CADASTRO DE PRODUTO ===")
 
-Comentário
-Você não está recebendo notificações desta conversa.
+    nome = input("Nome do produto: ")
+    categoria = input("Categoria: ")
+    quantidade = int(input("Quantidade: "))
+
+    produto = {
+        "nome": nome,
+        "categoria": categoria,
+        "quantidade": quantidade
+    }
+
+    produtos.append(produto)
+
+    print("\nProduto cadastrado com sucesso!")
+
+
+def listar_produtos():
+    print("\n=== PRODUTOS CADASTRADOS ===")
+
+    if len(produtos) == 0:
+        print("Nenhum produto cadastrado.")
+        return
+
+    for produto in produtos:
+        print(
+            f"Produto: {produto['nome']} | "
+            f"Categoria: {produto['categoria']} | "
+            f"Quantidade: {produto['quantidade']}"
+        )
+
+
+def menu():
+    while True:
+        print("\n==============================")
+        print("       SISTEMA DE ESTOQUE")
+        print("==============================")
+        print("1 - Cadastrar produto")
+        print("2 - Listar produtos")
+        print("0 - Sair")
+        print("==============================")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            cadastrar_produto()
+
+        elif opcao == "2":
+            listar_produtos()
+
+        elif opcao == "0":
+            print("Sistema encerrado.")
+            break
+
+        else:
+            print("Opção inválida.")
+
+
+menu()
+```
